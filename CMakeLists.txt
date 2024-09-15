@@ -15,7 +15,13 @@ project ("MinimalSFML")
 set(SFML_DIR "SFML-2.6.1")
 
 # Search for SFML package
-find_package(SFML 2.6.1 COMPONENTS graphics audio REQUIRED)
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    # For Linux 
+    set(SFML_DIR "~/SFML-2.6.1/lib/cmake/SFML")
+else()
+    # For another OS SFML 2.6.1
+    find_package(SFML 2.6.1 COMPONENTS graphics audio window system REQUIRED)
+endif()
 
 # Add source to this project's executable.
 add_executable (MinimalSFML "main.cpp" "Button.cpp" "Label.cpp")
