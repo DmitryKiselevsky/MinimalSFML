@@ -18,7 +18,7 @@ set(SFML_DIR "SFML-2.6.1")
 find_package(SFML 2.6.1 COMPONENTS graphics audio REQUIRED)
 
 # Add source to this project's executable.
-add_executable (MinimalSFML "MinimalSFML.cpp" "MinimalSFML.h" "Button.cpp" "Label.cpp")
+add_executable (MinimalSFML "main.cpp" "Button.cpp" "Label.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET MinimalSFML PROPERTY CXX_STANDARD 20)

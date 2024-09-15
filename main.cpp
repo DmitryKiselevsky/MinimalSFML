@@ -2,7 +2,6 @@
 //
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include "tinyfiledialogs/tinyfiledialogs.h"
 #include "Button.cpp"
 #include "Label.cpp"
 #include <sstream>
