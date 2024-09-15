@@ -24,6 +24,8 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET MinimalSFML PROPERTY CXX_STANDARD 20)
 endif()
 
+file(COPY ${CMAKE_SOURCE_DIR}/roboto.ttf DESTINATION ${CMAKE_BINARY_DIR})
+
 # Link SFML to project
 target_link_libraries(MinimalSFML PRIVATE sfml-graphics sfml-audio)
 # TODO: Add tests and install targets if needed.
