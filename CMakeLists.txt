@@ -33,5 +33,14 @@ endif()
 file(COPY ${CMAKE_SOURCE_DIR}/roboto.ttf DESTINATION ${CMAKE_BINARY_DIR})
 
 # Link SFML to project
-target_link_libraries(MinimalSFML PRIVATE sfml-graphics sfml-audio)
+if (WIN32)
+    target_link_libraries(MinimalSFML sfml-graphics sfml-window sfml-system)
+    set_target_properties(MinimalSFML PROPERTIES
+        WIN32_EXECUTABLE TRUE
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
+        file(COPY ${CMAKE_SOURCE_DIR}/roboto.ttf DESTINATION ${CMAKE_BINARY_DIR}/bin)
+else()
+    target_link_libraries(MinimalSFML sfml-graphics sfml-window sfml-system)
+endif()
 # TODO: Add tests and install targets if needed.
